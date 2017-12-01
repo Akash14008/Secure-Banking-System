@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Information</title>
+</head>
+<body>
+    <h3>
+        {% if Individual.UserType == 'INDIVIDUAL' %}
+            <a href="{% url 'IndividualHome' %}">Back</a>
+        {% else %}
+            <a href="{% url 'MerchantHome' %}">Back</a>
+        {% endif %}
+	</h3>
+	<h2>Personal Information</h2>
+
+    <form method="post"> {% csrf_token %}
+        {{ IndividualForm.as_p }}
+        <button type="submit">Save changes</button>
+    </form>
+</body>
+</html>
